@@ -1,10 +1,6 @@
 import express from "express";
 import dotenv from "dotenv"
 import cookieParser from "cookie-parser";
-import roomRouter from "./routes/roomRouter.js";
-import userRouter from "./routes/userRouter.js";
-import dataRouter from "./routes/dataRouter.js";
-import productRouter from "./routes/ProductRouter.js";
 import productRouters from "./routes/ProductRouters.js";
 import ErroThrow from "./middleware/error.js";
 import connectDatabase from "./server.js"
@@ -40,11 +36,6 @@ app.use(cookieParser())
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(fileUpload());
 
-
-app.use('/user', userRouter);
-app.use('/room', roomRouter);
-app.use('/data', dataRouter);
-app.use('/product', productRouter)
 
 // new routers
 app.use('/api/v1', productRouters)
