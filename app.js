@@ -49,7 +49,7 @@ app.use(ErroThrow)
 app.get('/', (req, res) => res.json({ message: 'Welcome to our API' }))
 app.use((req, res) => res.status(404).json({ success: false, message: 'Not Found' }))
 
-connectDatabase()
+connectDatabase(process.env.MONGODB_CONNECT)
 
 cloundinary.config({
     cloud_name: process.env.CLOUDINARY_NAME,
